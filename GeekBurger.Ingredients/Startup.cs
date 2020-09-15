@@ -34,7 +34,8 @@ namespace GeekBurger.Ingredients
                 client.BaseAddress = new Uri(Configuration["ProductsUrl"]);
             });
 
-
+            services.AddSingleton<ILabelImaggeAddedService, LabelImageAddedService>();
+            services.AddSingleton<IProductChangedService, ProductChangedService>();
             services.AddSwaggerGen();
             //services.AddScoped<IProductService, ProductService>();
         }
@@ -58,6 +59,12 @@ namespace GeekBurger.Ingredients
             app.UseRouting();
 
             app.UseAuthorization();
+
+            var productChangedService = app.ApplicationServices.GetService<IProductChangedService>();
+            productChangedService.ReceiveMessages();
+
+            var labelImaggeAddedService = app.ApplicationServices.GetService<ILabelImaggeAddedService>();
+            labelImaggeAddedService.ReceiveMessages();
 
             app.UseEndpoints(endpoints =>
             {

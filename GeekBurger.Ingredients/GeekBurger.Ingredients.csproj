@@ -1,26 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="Controllers\IngredientsController.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="GeekBurger.Ingredients.Contract" Version="1.0.0" />
     <PackageReference Include="GeekBurger.Products.Contract" Version="1.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1"/>
+    <PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Azure.Management.ServiceBus.Fluent" Version="1.34.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\GeekBurger-Products\GeekBurger.Products.Contract\GeekBurger.Products.Contract.csproj" />
     <ProjectReference Include="..\GeekBurger.Ingredients.Contract\GeekBurger.Ingredients.Contract.csproj" />
   </ItemGroup>
-
-
 </Project>
